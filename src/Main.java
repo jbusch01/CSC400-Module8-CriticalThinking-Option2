@@ -16,7 +16,7 @@ public class Main {
             System.out.println("Last Name: ");
             String lastName = scnr.nextLine();
 
-            System.out.println("Enter course names (serperated by a comma): ");
+            System.out.println("Enter course names (separated by a comma): ");
             String courseInput = scnr.nextLine();
             String[] courses = courseInput.split(",");
 
@@ -25,9 +25,8 @@ public class Main {
                 courses[j] = courses[j].trim();
             }
 
-            String courseName = courses[0];
-            int numCourses = courses.length;
+            InstructorInfo instructor = new InstructorInfo(firstName, lastName, courses);
+            instructorQueue.enqueue(instructor);
         }
     }
-    
 }

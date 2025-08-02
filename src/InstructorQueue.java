@@ -28,7 +28,7 @@ public class InstructorQueue {
         quickSortByCourses(0, queue.size() - 1);
     }
     
-    // QuickSort be last name (descending)
+    // QuickSort by last name (descending)
     private void quickSortByLastName(int low, int high) {
         if (low < high) {
             int pivotIndex = partitionByLastName(low, high);

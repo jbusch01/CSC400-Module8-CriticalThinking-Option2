@@ -1,15 +1,15 @@
  public class InstructorInfo {
     private String firstName;
     private String lastName;
-    private String courseName;
+    private String[] courseNames;
     private int numCourses;
 
-    // Constuctor
-    public InstructorInfo(String firstName, String lastName, String courseName, int numCourses) {
+    // Constructor
+    public InstructorInfo(String firstName, String lastName, String[] courseNames) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.courseName = courseName;
-        this.numCourses = numCourses;
+        this.courseNames = courseNames;
+        this.numCourses = courseNames.length;
     }
 
     // Getters
@@ -21,8 +21,8 @@
         return lastName;
     }
 
-    public String getCourseName() {
-        return courseName;
+    public String[] getCourseNames() {
+        return courseNames;
     }
 
     public int getNumCourses() {
@@ -38,8 +38,9 @@
         this.lastName = lastName;
     }
 
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
+    public void setCourseNames(String[] courseNames) {
+        this.courseNames = courseNames;
+        this.numCourses = courseNames.length;
     }
 
     public void setNumCourses(int numCourses) {
@@ -49,6 +50,13 @@
     // toString method for standardized output
     @Override
     public String toString() {
-        return lastName + ", " + firstName + " (Courses: " + numCourses + ")";
+        StringBuilder courseList = new StringBuilder();
+        for (int i = 0; i < courseNames.length; i++ ) {
+            courseList.append(courseNames[i]);
+            if (i < courseNames.length - 1) {
+                courseList.append(", ");
+            }
+        }
+        return lastName + ", " + firstName + " | Courses (" + numCourses + "): " + courseList.toString();
     }
  }
