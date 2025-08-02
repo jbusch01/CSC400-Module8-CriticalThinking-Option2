@@ -8,7 +8,7 @@ public class Main {
         System.out.println("Enter information for 5 instructors:\n");
         
         for (int i = 1; i <= 5; i++) {
-            System.out.println("Instrucotr " + i + ":");
+            System.out.println("\nInstructor " + i + ":");
             
             System.out.println("First Name: ");
             String firstName = scnr.nextLine();
@@ -28,5 +28,18 @@ public class Main {
             InstructorInfo instructor = new InstructorInfo(firstName, lastName, courses);
             instructorQueue.enqueue(instructor);
         }
+
+        System.out.println("\n--- Original Queue ---");
+        instructorQueue.displayQueue();
+
+        System.out.println("\n--- Sorted by Last Name (Descending) ---");
+        instructorQueue.sortByLastNameDescending();
+        instructorQueue.displayQueue();
+
+        System.out.println("\n--- Sorted by Number of Courses (Descending) ---");
+        instructorQueue.sortByCoursesDescending();
+        instructorQueue.displayQueue();
+
+        scnr.close();
     }
 }
